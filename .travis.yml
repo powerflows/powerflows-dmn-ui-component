@@ -1,0 +1,20 @@
+language: node_js
+node_js:
+  - "8"
+dist: trusty
+sudo: required
+
+cache:
+  directories:
+    - node_modules
+
+addons:
+  chrome: stable
+
+script:
+  - npm run lint:powerflows-testing-app
+  - npm run test:powerflows-testing-app
+  - npm run build:powerflows-testing-app
+  - npm run lint:powerflows
+  - npm run test:powerflows
+  - npm run build:powerflows
