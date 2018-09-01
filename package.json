@@ -12,8 +12,7 @@
     "lint:powerflows-testing-app": "ng lint powerflows-testing-app",
     "build:powerflows": "ng build powerflows",
     "test:powerflows": "ng test powerflows --watch=false",
-    "lint:powerflows": "ng lint powerflows",
-    "e2e": "ng e2e"
+    "lint:powerflows": "ng lint powerflows"
   },
   "private": true,
   "dependencies": {
@@ -48,7 +47,6 @@
     "karma-jasmine": "~1.1.1",
     "karma-jasmine-html-reporter": "^0.2.2",
     "ng-packagr": "^3.0.0",
-    "protractor": "~5.3.0",
     "ts-node": "~5.0.1",
     "tsickle": ">=0.29.0",
     "tslib": "^1.9.0",
