@@ -19,5 +19,5 @@
  */
 
 export * from './lib/powerflows.service';
-export * from './lib/powerflows.component';
+export * from './lib/modeler/powerflows.component';
 export * from './lib/powerflows.module';
