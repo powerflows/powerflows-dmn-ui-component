@@ -17,10 +17,12 @@
 import {NgModule} from '@angular/core';
 import {PowerFlowsComponent} from './modeler/powerflows.component';
 import {BrowserModule} from '@angular/platform-browser';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   declarations: [PowerFlowsComponent],
   exports: [PowerFlowsComponent]
