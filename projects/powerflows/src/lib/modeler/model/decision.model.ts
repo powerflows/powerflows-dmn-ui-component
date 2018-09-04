@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import {Input, Output} from './field.model';
+import { RuleInput, RuleOutput} from './field.model';
 import {ExpressionType} from './expression.model';
 import {Rule} from './rule.model';
 
@@ -23,8 +23,8 @@ export class Decision {
   name: string;
   hitPolicy: HitPolicy;
   expressionType: ExpressionType;
-  inputs: Array<Input>;
-  outputs: Array<Output>;
+  inputs: Array<RuleInput>;
+  outputs: Array<RuleOutput>;
   rules: Array<Rule>;
 }
 

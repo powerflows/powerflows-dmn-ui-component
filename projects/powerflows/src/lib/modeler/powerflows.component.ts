@@ -19,6 +19,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {PowerFlowsService} from '../powerflows.service';
 import {Decision} from './model/decision.model';
+import {InputEntry, Rule} from './model/rule.model';
+import {RuleInput, RuleOutput} from './model/field.model';
 
 @Component({
   selector: 'lib-power-flows',
@@ -30,9 +32,27 @@ export class PowerFlowsComponent implements OnInit {
   @Input()
   public decision: Decision;
 
-  constructor(private powerflowsService: PowerFlowsService) { }
+  public editingRule: Rule;
+
+  constructor(private powerflowsService: PowerFlowsService) {
+  }
 
   ngOnInit() {
   }
 
+  getSortedInputs() {
+    return this.decision.inputs.sort((i1, i2) => i1.order - i2.order);
+  }
+
+  getSortedOutputs() {
+    return this.decision.outputs.sort((o1, o2) => o1.order - o2.order);
+  }
+
+  getEntryForInput(rule: Rule, input: RuleInput): InputEntry {
+    return rule.inputEntries.find(inputEntry => inputEntry.name === input.name);
+  }
+
+  getEntryForOutput(rule: Rule, output: RuleOutput): InputEntry {
+    return rule.outputEntries.find(outputEntry => outputEntry.name === output.name);
+  }
 }

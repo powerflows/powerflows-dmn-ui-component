@@ -23,16 +23,36 @@
     <thead>
     <tr>
       <th>#</th>
-      <th contenteditable="true" scope="col" *ngFor="let decisionInput of decision.inputs">{{decisionInput.description}}</th>
-      <th contenteditable="true" scope="col" *ngFor="let decisionOutput of decision.outputs">{{decisionOutput.name}}</th>
+      <th contenteditable="true" scope="col" *ngFor="let decisionInput of getSortedInputs()">
+        {{decisionInput.description}}
+      </th>
+      <th contenteditable="true" scope="col" *ngFor="let decisionOutput of getSortedOutputs()">
+        {{decisionOutput.name}}
+      </th>
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let rule of decision.rules;index as rowNumber;">
+    <tr *ngFor="let rule of decision.rules; index as rowNumber;" (click)="editingRule = rule;">
       <th scope="row">{{rowNumber + 1}}</th>
-      <td contenteditable="true" *ngFor="let inputEntry of rule.inputEntries">{{inputEntry.expression.value}}</td>
-      <td contenteditable="true" *ngFor="let outputEntry of rule.outputEntries">{{outputEntry.expression.value}}</td>
+
+      <ng-container
+        *ngTemplateOutlet="rule === editingRule ? editRule : readOnlyRule; context: {rule: rule}"></ng-container>
     </tr>
     </tbody>
   </table>
 </div>
+
+
+<ng-template #editRule let-rule="rule">
+  <td *ngFor="let input of decision.inputs;">
+    <input [(ngModel)]="getEntryForInput(rule, input)?.expression.value">
+  </td>
+  <td *ngFor="let output of decision.outputs">
+    <input [(ngModel)]="getEntryForOutput(rule, output)?.expression.value">
+  </td>
+</ng-template>
+
+<ng-template #readOnlyRule let-rule="rule">
+  <td *ngFor="let input of decision.inputs;">{{getEntryForInput(rule, input)?.expression.value}}</td>
+  <td *ngFor="let output of decision.outputs">{{getEntryForOutput(rule, output)?.expression.value}}</td>
+</ng-template>
