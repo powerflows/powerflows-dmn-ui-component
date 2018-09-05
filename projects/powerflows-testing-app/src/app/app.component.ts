@@ -17,7 +17,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Decision, HitPolicy} from '../../../powerflows/src/lib/modeler/model/decision.model';
 import {ExpressionType} from '../../../powerflows/src/lib/modeler/model/expression.model';
-import {Input, Output, ValueType} from '../../../powerflows/src/lib/modeler/model/field.model';
+import {RuleInput, RuleOutput, ValueType} from '../../../powerflows/src/lib/modeler/model/field.model';
 import {Rule} from '../../../powerflows/src/lib/modeler/model/rule.model';
 
 @Component({
@@ -42,27 +42,30 @@ export class AppComponent implements OnInit {
     decision.expressionType = ExpressionType.LITERAL;
     decision.hitPolicy = HitPolicy.UNIQUE;
 
-    const input1 = new Input();
+    const input1 = new RuleInput();
     input1.name = 'First input (string)';
     input1.description = 'This is very important first input';
     input1.type = ValueType.STRING;
     input1.expression = null;
+    input1.order = 2;
 
-    const input2 = new Input();
+    const input2 = new RuleInput();
     input2.name = 'Second input (boolean)';
     input2.description = 'This is very important second input';
     input2.type = ValueType.BOOLEAN;
     input2.expression = null;
+    input2.order = 1;
 
-    const input3 = new Input();
+    const input3 = new RuleInput();
     input3.name = 'Third input (collection)';
     input3.description = 'This is very important third input';
     input3.type = ValueType.COLLECTION;
     input3.expression = null;
+    input3.order = 3;
 
     decision.inputs = [input1, input2, input3];
 
-    const output1 = new Output();
+    const output1 = new RuleOutput();
     output1.name = 'Output 1';
     output1.description = 'Output 1 description';
     output1.type = ValueType.BOOLEAN;
@@ -75,7 +78,7 @@ export class AppComponent implements OnInit {
     };
 
     const inputEntry2 = {
-      name: 'Second input (string)',
+      name: 'Second input (boolean)',
       expression: {value: 'r1 for input2', type: ExpressionType.LITERAL}
     };
 
@@ -93,7 +96,14 @@ export class AppComponent implements OnInit {
     };
     rule1.outputEntries = [outputEntry1];
 
-    decision.rules = [rule1, rule1, rule1];
+    const rule2 = new Rule();
+    Object.assign(rule2, rule1);
+    rule2.order = 2;
+
+    const rule3 = new Rule();
+    Object.assign(rule3, rule1);
+    rule2.order = 3;
+    decision.rules = [rule1, rule2, rule3];
 
     return decision;
   }

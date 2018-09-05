@@ -16,17 +16,19 @@
 
 import {Expression} from './expression.model';
 
-export class Input {
+export class RuleInput {
   name: string;
   description: string;
   type: ValueType;
   expression: Expression;
+  order: number;
 }
 
-export class Output {
+export class RuleOutput {
   name: string;
   description: string;
   type: ValueType;
+  order: number;
 }
 
 export enum ValueType {

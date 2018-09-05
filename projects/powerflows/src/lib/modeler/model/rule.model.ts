@@ -17,9 +17,10 @@
 import {Expression} from './expression.model';
 
 export class Rule {
- description: string;
- inputEntries: Array<InputEntry>;
- outputEntries: Array<OutputEntry>;
+  order: number;
+  description: string;
+  inputEntries: Array<InputEntry>;
+  outputEntries: Array<OutputEntry>;
 }
 
 export class InputEntry {
