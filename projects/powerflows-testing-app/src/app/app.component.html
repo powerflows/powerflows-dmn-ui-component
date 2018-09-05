@@ -15,11 +15,20 @@ limitations under the License.
 
 -->
 
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-</div>
-<h2>Here will be poweflows-ui lib </h2>
+<div class="container">
+  <div class="py-5 text-center">
+    <img class="d-block mx-auto mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+    <h2>Testing site for Powerflows lib</h2>
+    <p class="lead">Below you should see component representing Powerflows lib! Have a nice developing and testing :-)</p>
+  </div>
 
+  <div class="row">
+    <div class="col-md-12">
+    <lib-power-flows [decision]="decision"></lib-power-flows>
+    </div>
+  </div>
+
+  <footer class="my-5 pt-5 text-muted text-center text-small">
+    <p class="mb-1">&copy; 2018 Powerflows</p>
+  </footer>
+</div>

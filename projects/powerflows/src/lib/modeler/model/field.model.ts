@@ -29,7 +29,7 @@ export class Output {
   type: ValueType;
 }
 
-public enum ValueType {
+export enum ValueType {
   STRING = 'STRING',
   INTEGER = 'INTEGER',
   BOOLEAN = 'BOOLEAN',
