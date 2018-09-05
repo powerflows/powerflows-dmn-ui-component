@@ -22,7 +22,6 @@ export class Rule {
  outputEntries: Array<OutputEntry>;
 }
 
-
 export class InputEntry {
   name: string;
   expression: Expression;

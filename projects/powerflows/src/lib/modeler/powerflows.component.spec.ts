@@ -17,6 +17,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PowerFlowsComponent } from './powerflows.component';
+import {BrowserModule} from '@angular/platform-browser';
 
 describe('PowerFlowsComponent', () => {
   let component: PowerFlowsComponent;
@@ -24,7 +25,8 @@ describe('PowerFlowsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PowerFlowsComponent ]
+      declarations: [ PowerFlowsComponent ],
+      imports: [BrowserModule]
     })
     .compileComponents();
   }));

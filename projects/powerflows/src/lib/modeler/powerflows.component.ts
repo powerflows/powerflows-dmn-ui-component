@@ -1,4 +1,5 @@
 /*
+ *
  * Copyright (c) 2018-present PowerFlows.org - all rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -12,22 +13,24 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
  */
 
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {PowerFlowsService} from '../powerflows.service';
+import {Decision} from './model/decision.model';
 
 @Component({
   selector: 'lib-power-flows',
-  template: `
-    <p>
-      PowerFlows works!
-    </p>
-  `,
-  styles: []
+  templateUrl: './powerflows.component.html',
+  styleUrls: ['./powerflows.component.sass']
 })
 export class PowerFlowsComponent implements OnInit {
 
-  constructor() { }
+  @Input()
+  public decision: Decision;
+
+  constructor(private powerflowsService: PowerFlowsService) { }
 
   ngOnInit() {
   }
